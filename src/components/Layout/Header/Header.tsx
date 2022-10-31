@@ -1,6 +1,10 @@
+import React, { useEffect } from "react";
+import { nextSlide, toggleSlideShow } from "features/slideShowSlice";
+import { useAppDispatch, useAppSelector } from "app/hooks";
+
 import { LogoIcon } from "assets/icons";
-import React from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const StyledHeader = styled.header`
   width: 100vw;
@@ -29,20 +33,43 @@ const StartSlideShowButton = styled.button`
   letter-spacing: 0.120625rem;
   transition: color 0.2s ease 0s;
   cursor: pointer;
-  font-size: .9rem;
+  font-size: 0.9rem;
 
   &:hover {
     color: black;
   }
-  
 `;
 
 const Header = () => {
+  const dispatch = useAppDispatch();
+  const { isPlaying } = useAppSelector((state) => state.slideShow);
+  const navigate = useNavigate();
+
+  function slideShow() {
+    if (isPlaying && document.hasFocus()) {
+      dispatch(nextSlide());
+    }
+  }
+
+
+
+  useEffect(() => {
+    const interval = setInterval(slideShow, 5000)
+
+    return () => clearInterval(interval)
+  }, [isPlaying]);
+
   return (
     <StyledHeader>
       <StyledNav>
         <LogoIcon />
-        <StartSlideShowButton>START SLIDESHOW</StartSlideShowButton>
+        <StartSlideShowButton onClick={() => {
+           dispatch(toggleSlideShow())
+      navigate("slideshow");
+           
+        }}>
+          {!isPlaying ? "START SLIDESHOW" : "STOP SLIDESHOW"}
+        </StartSlideShowButton>
       </StyledNav>
     </StyledHeader>
   );

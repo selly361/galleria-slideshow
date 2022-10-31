@@ -1,7 +1,10 @@
 import { Action, ThunkAction, configureStore } from '@reduxjs/toolkit';
 
+import slideShowReducer from 'features/slideShowSlice';
+
 export const store = configureStore({
   reducer: {
+    slideShow: slideShowReducer
   },
 });
 

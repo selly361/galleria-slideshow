@@ -9,7 +9,7 @@ function App() {
     <Wrapper>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/art_name" element={<SlideShowPage />} />
+        <Route path="/slideshow" element={<SlideShowPage />} />
       </Routes>
     </Wrapper>
   );

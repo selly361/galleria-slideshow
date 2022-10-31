@@ -1,8 +1,11 @@
 import { captionAnimation, cardAnimation } from "global/animation";
 
 import React from "react";
-import { motion } from "framer-motion";
+import { motion } from "framer-motion"
+import { setCurrentSlide } from "features/slideShowSlice";
 import styled from "styled-components";
+import { useAppDispatch } from "app/hooks";
+import { useNavigate } from "react-router-dom";
 
 interface Iprops {
   image: string;
@@ -57,8 +60,16 @@ const ArtistName = styled.p`
 `;
 
 const GalleryImage = ({ image, artistName, artName, index }: Iprops) => {
+  const dispatch = useAppDispatch()
+  const navigate = useNavigate()
+  
+  const handleClick = () => {
+    dispatch(setCurrentSlide({ name: artName }))
+    navigate("slideshow")
+  }
+
   return (
-    <Container variants={cardAnimation(index)} initial="hide" animate="show">
+    <Container variants={cardAnimation(index)} initial="hide" animate="show" onClick={handleClick}>
       <img src={image} />
       <Content variants={captionAnimation} initial="hide" animate="show">
         <ArtName>{artName}</ArtName>
