@@ -77,8 +77,8 @@ export const galleryAnimation = {
       show: {
         opacity: 1,
         transition: {
-          duration: .5,
-         delay: delay / 8
+          duration: 1,
+         delay: delay / 6
         },
       },
     }

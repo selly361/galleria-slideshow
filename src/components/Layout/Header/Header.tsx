@@ -1,10 +1,10 @@
+import { Link, useNavigate } from "react-router-dom";
 import React, { useEffect } from "react";
 import { nextSlide, toggleSlideShow } from "features/slideShowSlice";
 import { useAppDispatch, useAppSelector } from "app/hooks";
 
 import { LogoIcon } from "assets/icons";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
 
 const StyledHeader = styled.header`
   width: 100vw;
@@ -12,6 +12,7 @@ const StyledHeader = styled.header`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 3rem;
 `;
 
 const StyledNav = styled.nav`
@@ -62,7 +63,9 @@ const Header = () => {
   return (
     <StyledHeader>
       <StyledNav>
+        <Link to="/">
         <LogoIcon />
+        </Link>
         <StartSlideShowButton onClick={() => {
            dispatch(toggleSlideShow())
       navigate("slideshow");

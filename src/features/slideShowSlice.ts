@@ -9,6 +9,7 @@ const slideShowSlice = createSlice({
         slideShowData,
         currentSlideIndex: wrap(0, slideShowData.length, 0),
         direction: 1,
+        modal: false
     },
 
     reducers: {
@@ -31,9 +32,17 @@ const slideShowSlice = createSlice({
 
         toggleSlideShow: (state) => {
             state.isPlaying = !state.isPlaying
+        },
+
+        openModal: (state) => {
+            state.modal = true
+        },
+
+        closeModal: (state) => {
+            state.modal = false
         }
     }
 })
 
 export default slideShowSlice.reducer;
-export const {  prevSlide, nextSlide, setCurrentSlide, toggleSlideShow } = slideShowSlice.actions
+export const {  prevSlide, nextSlide, setCurrentSlide, toggleSlideShow, openModal, closeModal } = slideShowSlice.actions
