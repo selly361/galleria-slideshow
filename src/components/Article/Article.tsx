@@ -14,6 +14,12 @@ const StyledArticle = styled(motion.article)`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+
+  @media (max-width: 1128px){
+    flex-flow: column;
+    gap: 7rem;
+  }
 `;
 
 const ImageWrapper = styled.div`
@@ -44,11 +50,16 @@ const Intro = styled.section`
   top: 0;
   right: -250px;
   padding: 1rem;
+
+  @media (max-width: 1128px){
+    right: -125px;
+  }
 `;
 
 const ArtName = styled.h3`
   font-size: 3rem;
   margin-bottom: 1rem;
+
 `;
 
 const ArtistName = styled.p`
@@ -58,7 +69,10 @@ const ArtistName = styled.p`
 
 const ContentContainer = styled.div`
   width: 400px;
-  margin-right: 3rem;
+
+  @media (max-width: 1128px){
+    width: 100%;
+  }
 `;
 
 const Desc = styled.p`
@@ -81,6 +95,12 @@ const Year = styled.h2`
   right: 0;
   z-index: -1;
   line-height: 1;
+
+
+  @media (max-width: 1128px){
+    left: 0;
+    font-size: 10rem;
+  }
 `;
 
 const Link = styled.a`
@@ -109,7 +129,7 @@ const ViewImage = styled.button`
   gap: 1rem;
   align-items: center;
 
-  &:hover {
+  &.active, &:hover {
     background-color: rgba(255, 255, 255, 0.75);
     color: black;
 
@@ -143,7 +163,7 @@ const Article = ({ name, images, artist, year, description }: Iart) => {
           </Intro>
           <Image src={images.hero.large} alt={name} />
           <AuthorImage src={artist.image} />
-          <ViewImage onClick={() => dispatch(openModal())}>
+          <ViewImage className={state.modal ? "active" : ''} onClick={() => dispatch(openModal())}>
             <ViewImageIcon /> VIEW IMAGE
           </ViewImage>
         </ImageWrapper>

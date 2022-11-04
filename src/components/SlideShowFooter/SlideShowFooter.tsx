@@ -16,7 +16,7 @@ const Wrapper = styled.div`
 `;
 
 const ProgressBar = styled.div<{ width: string }>`
-  transition: width 1s ease;
+  transition: width 1s ease-in-out;
   width: ${(props) => `${props.width}%`};
   height: 2px;
   background-color: black;
@@ -67,9 +67,7 @@ svg:hover path {
 
 const SlideShowFooter = ({ name, artistName }: { name: string; artistName: string }) => {
   const dispatch = useAppDispatch()
-  const { currentSlideIndex, slideShowData } = useAppSelector(
-    (state) => state.slideShow
-  );
+  const { currentSlideIndex, slideShowData } = useAppSelector((state) => state.slideShow);
 
   
 
