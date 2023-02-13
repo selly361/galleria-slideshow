@@ -46,6 +46,8 @@ const Header = () => {
   const { isPlaying } = useAppSelector((state) => state.slideShow);
   const navigate = useNavigate();
 
+  
+
   function slideShow() {
     if (isPlaying && document.hasFocus()) {
       dispatch(nextSlide());

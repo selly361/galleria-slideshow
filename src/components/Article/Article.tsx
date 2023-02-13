@@ -31,6 +31,10 @@ const Image = styled.img`
   width: 550px;
   height: 600px;
   object-fit: contain;
+  
+  @media (max-width: 800px){
+    width: 450px;
+  }
 `;
 
 const AuthorImage = styled.img`
@@ -40,6 +44,11 @@ const AuthorImage = styled.img`
   right: -125px;
   bottom: -62.5px;
   object-fit: contain;
+
+  @media (max-width: 800px){
+    right: -200px;
+    
+  }
 `;
 
 const Intro = styled.section`
@@ -54,11 +63,16 @@ const Intro = styled.section`
   @media (max-width: 1128px){
     right: -125px;
   }
+
+  @media (max-width: 1000px){
+    right: -40px;
+  }
 `;
 
 const ArtName = styled.h3`
   font-size: 3rem;
   margin-bottom: 1rem;
+
 
 `;
 

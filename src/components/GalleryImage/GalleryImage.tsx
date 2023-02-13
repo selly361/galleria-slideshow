@@ -42,6 +42,7 @@ const Content = styled(motion.div)`
   left: 0;
   background: linear-gradient(rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.85));
   padding: 1rem;
+
   `
 
 const ArtName = styled.h4`
@@ -50,7 +51,7 @@ const ArtName = styled.h4`
   line-height: normal;
   white-space: pre-line;
   color: white;
-
+  
 `;
 
 const ArtistName = styled.p`

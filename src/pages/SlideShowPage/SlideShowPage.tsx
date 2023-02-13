@@ -9,7 +9,7 @@ import { slideAnimation } from "global/animation";
 import styled from "styled-components";
 
 const Container = styled.main`
-  width: 100vw;
+  width: 95vw;
   min-height: 100vh;
   display: grid;
   gap: 5rem;

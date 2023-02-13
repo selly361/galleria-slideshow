@@ -40,6 +40,11 @@ const BottomSection = styled.div`
 const ArtName = styled.h3`
   font-size: 1.3rem;
   margin-bottom: 1rem;
+
+
+  @media (max-width: 600px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const ArtistName = styled.p`
@@ -62,6 +67,11 @@ const Pagination = styled.div`
 
 svg:hover path {
   fill: black;
+}
+
+
+@media (max-width: 700px){
+  transform: scale(.9);
 }
 `
 

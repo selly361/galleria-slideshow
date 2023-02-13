@@ -69,4 +69,10 @@ export const GlobalStyle = createGlobalStyle`
   }
 
 
+  @media (max-width: 800px){
+    :root {
+      font-size: 11px;
+    }
+  }
+
 `

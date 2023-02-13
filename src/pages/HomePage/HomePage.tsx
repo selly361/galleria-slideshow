@@ -7,7 +7,7 @@ import { galleryAnimation } from "global/animation";
 import galleryData from "data/data.json";
 import { macyOptions } from "data/macyOptions";
 import { motion } from "framer-motion";
-import { setCurrentSlide } from "features/slideShowSlice";
+import { reset } from "features/slideShowSlice";
 import styled from "styled-components";
 import { useAppDispatch } from "app/hooks";
 
@@ -20,11 +20,13 @@ const Container = styled(motion.main)`
 const HomePage = () => {
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
+  
   useEffect(() => {
     new Macy(macyOptions);
+    dispatch(reset())
   }, []);
 
-
+  
   return (
     <Container
       variants={galleryAnimation}
